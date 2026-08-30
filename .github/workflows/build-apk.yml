@@ -35,9 +35,13 @@ jobs:
         working-directory: TollSum
         run: gradle assembleDebug --stacktrace
 
+      - name: Rename APK
+        run: |
+          cp TollSum/app/build/outputs/apk/debug/app-debug.apk "통행료 얼마 나왔지.apk"
+
       - name: Save APK
         uses: actions/upload-artifact@v4
         with:
-          name: TollSum-APK
-          path: TollSum/app/build/outputs/apk/debug/app-debug.apk
+          name: 통행료-얼마-나왔지
+          path: 통행료 얼마 나왔지.apk
           if-no-files-found: error
