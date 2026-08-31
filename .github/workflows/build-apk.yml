@@ -17,7 +17,7 @@ jobs:
 
       - name: Restore Android project
         run: |
-          base64 -d TollSum-project-v1.11.txt > project.zip
+          base64 -d TollSum-project-v1.13.txt > project.zip
           unzip -q project.zip
 
       - name: Set up Java
