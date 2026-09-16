@@ -17,7 +17,7 @@ jobs:
 
       - name: Restore Android project
         run: |
-          base64 -d TollSum-project-v1.30-fix.txt > project.zip
+          base64 -d TollSum-project-v1.31.txt > project.zip
           unzip -q project.zip
           cp -a TollSum/. .
 
@@ -42,11 +42,11 @@ jobs:
         run: |
           printf '%s' "$RELEASE_KEYSTORE_BASE64" | base64 --decode > app/release-key.jks
           gradle --no-daemon --max-workers=1 assembleRelease --stacktrace
-          mv app/build/outputs/apk/release/app-release.apk "app/build/outputs/apk/release/통행료-얼마-나왔지-v1.30.apk"
+          mv app/build/outputs/apk/release/app-release.apk "app/build/outputs/apk/release/통행료-얼마-나왔지-v1.31.apk"
 
       - name: Upload signed release APK
         uses: actions/upload-artifact@v4
         with:
-          name: toll-sum-release-v1.30
-          path: app/build/outputs/apk/release/통행료-얼마-나왔지-v1.30.apk
+          name: toll-sum-release-v1.31
+          path: app/build/outputs/apk/release/통행료-얼마-나왔지-v1.31.apk
           if-no-files-found: error
